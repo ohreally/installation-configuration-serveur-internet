@@ -14,4 +14,4 @@ Il détaille également le **partage** des fichiers, des calendriers et des carn
 
 Des éléments complémentaires sont en téléchargement sur le site de l'éditeur et sur le site et le compte GitHub de l'auteur.
 
-Pour plus d'informations, rendez vous à [librobert.net](https://www.librobert.net/boek/01/index.fr) ou chez [Éditions ENI](https://www.editions-eni.fr/livre/installation-et-configuration-d-un-serveur-internet-bind-apache-nginx-dovecot-postfix-9782409026027).
+Pour plus d'informations, rendez vous à [librobert.net](https://www.librobert.net/livre/internet/index.fr) ou chez [Éditions ENI](https://www.editions-eni.fr/livre/installation-et-configuration-d-un-serveur-internet-bind-apache-nginx-dovecot-postfix-9782409026027).
