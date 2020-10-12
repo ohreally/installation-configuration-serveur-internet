@@ -1,0 +1,21 @@
+################################################################################
+#
+# KeyTable OpenDKIM FreeBSD.
+#
+# /usr/local/etc/opendkim/KeyTable
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+dkim._domainkey.example.com example.com:dkim:/usr/local/etc/opendkim/keys/example.com/dkim.private
+dkim._domainkey.example.edu example.edu:dkim:/usr/local/etc/opendkim/keys/example.edu/dkim.private
+dkim._domainkey.example.org example.org:dkim:/usr/local/etc/opendkim/keys/example.org/dkim.private

@@ -1,0 +1,71 @@
+#!/usr/bin/env nft -f
+
+################################################################################
+#
+# Configuration du pare-feu nftables sous Linux.
+#
+# /etc/nftables/inet-filter
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+flush ruleset
+
+define interface = "enp1s0"
+
+table inet filter {
+	set tcp_ok {
+		type inet_service
+	}
+
+	set udp_ok {
+		type inet_service
+	}
+
+	set admin {
+		type ipv4_addr
+	}
+
+	set filter {
+		type ipv4_addr
+	}
+
+	set martians {
+		type ipv4_addr
+		flags constant, interval
+		elements = {
+			0.0.0.0/8,
+			127.0.0.0/8,
+			172.16.0.0/12,
+			192.0.0.0/24,
+			192.0.2.0/24,
+			192.168.0.0/16,
+			198.18.0.0/15,
+			198.51.100.0/24,
+			203.0.113.0/24
+		}
+	}
+
+	chain input {
+		type filter hook input priority 0
+		policy drop
+		ct state established,related accept
+		iif lo accept
+		iifname $interface ip saddr @admin accept
+		ip saddr @filter drop
+		ip saddr @martians drop
+		ip daddr @martians drop
+		iifname $interface tcp dport 22 accept
+		iifname $interface tcp dport @tcp_ok accept
+		iifname $interface udp dport @udp_ok accept
+	}
+}

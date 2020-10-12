@@ -1,0 +1,36 @@
+################################################################################
+#
+# Configuration ssh.
+#
+# ~/.ssh/config
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+AddKeysToAgent yes
+CheckHostIP yes
+StrictHostKeyChecking ask
+TCPKeepAlive yes
+UpdateHostKeys ask
+VisualHostKey yes
+
+Host vrt
+ HostName vert.example.com
+ User dimitri
+ IdentityFile /home/dimitri/.ssh/id_rsa-vert
+ SetEnv VarEnv=qqch
+
+Host blu
+ HostName bleu.example.com
+ Port 2022
+ User dim
+ IdentityFile /home/dimitri/.ssh/id_rsa-bleu

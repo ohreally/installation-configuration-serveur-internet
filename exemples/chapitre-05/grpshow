@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+
+################################################################################
+#
+# Ce script affiche les membres des groupes donnés.
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+# Enregistrez ce script sous /usr/local/bin/grpshow et rendez-le exécutable :
+#
+#    # chown root:root /usr/local/bin/grpshow
+#    # chmod 755 grpshow
+#
+# Exécutez-le en le donnant un ou plusieurs noms ou identifiants de groupe :
+#
+#    $ grpshow wheel
+#    $ grpshow 10 marketing
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice,
+#    this list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provided with the distribution.
+#
+# 3. Neither the name of the copyright holder nor the names of its contributors
+#    may be used to endorse or promote products derived from this software
+#    without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+################################################################################
+
+# Les bases de données des groupes et des utilisateurs.
+# Normalement, ce n'est pas nécessaire de changer ces valeurs.
+GFICHIER=/etc/group
+PFICHIER=/etc/passwd
+
+################################################################################
+
+# On a besoin de grep.
+GREP=`which grep` || exit 1
+
+# Pas la peine de continuer sans groupes.
+[ -z "$*" ] && {
+	echo "Usage : $0 <groupe> [groupe [...]]"
+	exit 1
+}
+
+# Expression régulière pour trouver les valeurs numériques.
+regexp='^[0-9]+$'
+
+# Parcourir les arguments.
+for groupe in $@; do
+	# Trouver le groupe dans la base de données des groupes.
+	if [[ ${groupe} =~ ${regexp} ]]; then
+		# Le groupe est numérique, alors trouver identifiant (3ème champ).
+		gligne=`"${GREP}" "^[^:]*:[^:]*:${groupe}:" "${GFICHIER}"`
+	else
+		# Non numérique, alors trouver nom (1er champ).
+		gligne=`"${GREP}" "^${groupe}:" "${GFICHIER}"`
+	fi
+
+	[ -z "${gline}" ] && {
+		# Groupe non pas trouvé.
+		echo " Groupe : ${groupe}"
+		echo " Groupe inconnu."
+		echo
+		continue
+	}
+
+	# Mettre ligne dans un tableau
+	# (après avoir remplacé les deux-points par des espaces).
+	gligne=(${gligne//:/ })
+
+	# Nom du groupe (1er champ).
+	gnom=${gligne[0]}
+
+	# Identifiant du groupe (3ème champ).
+	gid=${gligne[2]}
+
+	# Membres (4ème champ).
+	supl=${gligne[3]}
+
+	# Trouver utilisateurs dans la base de données d'utilisateurs
+	# ayants ce groupe comme groupe primaire.
+	declare -A prim
+	while read pline; do
+		# Le 1er champ est le nom d'utilisateur.
+		prim[${#prim[*]}]=${pline%%:*}
+	done < <("${GREP}" "^[^:]*:[^:]*:[^:]*:${gid}:" "${PFICHIER}")
+
+	# Joindre utilisateurs en utilisant des virgules.
+	prim="${prim[@]}"
+	prim=${prim// /,}
+
+	# Sortie.
+	echo "                    Groupe : ${gnom} (${gid})"
+	echo "      Groupe primaire pour : ${prim:--}"
+	echo "Groupe supplémentaire pour : ${supl:--}"
+	echo
+
+	# Effacer valeurs pour la prochaine boucle.
+	unset prim
+done

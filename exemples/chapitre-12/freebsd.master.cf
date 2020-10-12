@@ -1,0 +1,39 @@
+################################################################################
+#
+# Processus daemons Postfix FreeBSD.
+#
+# /usr/local/etc/postfix/master.cf
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+smtp		inet	n	-	n	-	-	smtpd
+
+submission	inet	n	-	n	-	-	smtpd
+  -o syslog_name=postfix/submission
+  -o smtpd_tls_security_level=encrypt
+  -o smtpd_tls_auth_only=yes
+  -o smtpd_reject_unlisted_recipient=no
+  -o smtpd_client_restrictions=permit_sasl_authenticated,reject
+  -o milter_macro_daemon_name=ORIGINATING
+
+dovecot		unix	-	n	n	-	-	pipe
+  flags=DRhu user=vmail:vmail argv=/usr/local/libexec/dovecot/dovecot-lda -f ${sender} -a ${original_recipient} -d ${user}
+
+policyd-spf unix	-	n	n	-	0	spawn
+  user=policyd-spf argv=/usr/local/bin/policyd-spf
+
+
+# [...]
+#
+# Ne pas supprimer des lignes du fichier
+# qui n'interfèrent pas avec les lignes ci-dessus.

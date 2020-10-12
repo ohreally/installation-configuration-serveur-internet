@@ -1,0 +1,36 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; Fichier zone DNS du zone example.com.
+;
+; FreeBSD: /usr/local/etc/namedb/master/example.com.zone
+; Debian : /etc/bind/example.com.zone
+; CentOS : /var/named/example.com.zone
+;
+; Plus d'infos : https://www.librobert.net/livre/internet
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;
+; Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+;
+; Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+; Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+; ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+$ORIGIN example.com.
+$TTL 1d
+@		IN	SOA	ns.example.com. sysadmin.example.com. (
+					2020011502	; Numéro de série
+					3h		; Renouveler
+					1h		; Réessayer
+					1000h		; Abolir
+					1d		; TTL
+				)
+@		IN	NS	ns
+@		IN	NS	dns2.example.net.
+@		IN	MX	10 mx.example.com.
+@		IN	A	198.51.100.156
+vert		IN	A	198.51.100.156
+ns		IN	A	198.51.100.156
+mx		IN	A	198.51.100.156

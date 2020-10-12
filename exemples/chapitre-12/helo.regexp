@@ -1,0 +1,29 @@
+################################################################################
+#
+# Noms d'hôte expéditeur non acceptables Postfix.
+#
+# FreeBSD: /usr/local/etc/postfix/helo.regexp
+# Debian : /etc/postfix/helo.regexp
+# CentOS : /etc/postfix/helo.regexp
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+/^vert\.example\.com$/		550 Rejected
+/^mx\.example\.com$/		550 Rejected
+/^mail\.example\.com$/		550 Rejected
+/^smtp\.example\.com$/		550 Rejected
+/^imap\.example\.com$/		550 Rejected
+/^ns\.example\.com$/		550 Rejected
+/^www\.example\.com$/		550 Rejected
+/^198\.51\.100\.156$/		550 Rejected
+/^\[198\.51\.100\.156\]$/	550 Rejected

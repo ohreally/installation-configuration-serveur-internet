@@ -1,0 +1,86 @@
+################################################################################
+#
+# Ce fichier fait partie du livre
+#    Installation et configuration d'un serveur internet
+#
+# Plus d'infos : https://www.librobert.net/livre/internet
+#
+################################################################################
+#
+# Copyright (c) 2019 Robert LA LAU < https://www.librobert.net/ >
+#
+# Cette œuvre est mise à disposition sous licence Attribution 4.0 International.
+# Pour voir une copie de cette licence, visitez http://creativecommons.org/licenses/by/4.0/
+# ou écrivez à Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+#
+################################################################################
+
+# Voici les commandes nécessaires pour créer l'arborescence de répertoires
+# décrite dans la section Access Control Lists du chapitre 5, ainsi que
+# les groupes et leurs privilèges.
+
+# Ce fichier n'est pas destiné à être exécuté comme un script,
+# mais plutôt à être étudié.
+
+################################################################################
+
+
+# Création des groupes.
+for group in {devweb,jdevweb,devui,graphi,cdev,assist,marketing,httpd}; do
+	pw groupadd ${group}      # <- BSD
+	groupadd ${group}         # <- Linux
+done
+
+
+# Création de l'utilisateur.
+pw useradd devweb -g devweb   # <- BSD
+useradd -g devweb devweb      # <- Linux
+
+
+# Création des répertoires.
+for dir in {config,docs,download,html,images/banners,script,style}; do
+	mkdir -p /srv/www/www.example.com/${dir}
+done
+
+
+# Création des fichiers.
+cd /srv/www/www.example.com
+touch index.php config/config.php docs/manuel.pdf download/pilote.exe \
+  download/pilote-source.zip html/page.html images/logo.jpg \
+  images/banners/soldes.jpg script/script.js style/style.css
+
+
+# Afficher l'arborescence.
+# (Il peut être nécessaire d'installer `tree' d'abord.)
+tree /srv/www/www.example.com
+
+
+# Les permissions initiales.
+cd /srv/www
+chown -R devweb:devweb www.example.com
+chmod -R 771 www.example.com
+find ./www.example.com -type f -exec chmod -x {} \;
+
+
+# Les ACL.
+setfacl -R -m group:jdevweb:rwx ./www.example.com
+setfacl -R -m user:httpd:r ./www.example.com
+cd ./www.example.com
+setfacl -R -x group:jdevweb ./config
+setfacl -R -m group:devui:rwx,group:graphi:rwx ./images ./style
+setfacl -R -m group:devui:rwx ./html ./script
+setfacl -R -m group:cdev:rwx ./download
+setfacl -R -m group:assist:rwx ./docs
+setfacl -R -m group:marketing:rwx ./docs ./images/banners
+
+
+# Afficher les ACL.
+cd /srv/www
+find ./www.example.com -exec getfacl {} \;
+
+
+# Pour tester:
+# - créer quelques utilisateurs
+# - ajouter ces utiisateurs aux groupes créés ci-dessus
+# - se connecter en tant qu'utilisateur de test
+# - créer, modifier et supprimer des fichiers et des répertoires
