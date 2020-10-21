@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/ohreally/installation-configuration-serveur-internet/main/banners/isbn-9782409026027-1.jpg" alt="Installation et configuration d'un serveur internet" width="200">
+<img src="https://raw.githubusercontent.com/ohreally/installation-configuration-serveur-internet/main/images/isbn-9782409026027-1.jpg" alt="Installation et configuration d'un serveur internet" width="200">
 
 # Installation et configuration d'un serveur internet
 
