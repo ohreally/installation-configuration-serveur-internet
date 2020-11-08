@@ -4,9 +4,9 @@
 
 **Page 77** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
 
-![Non](images/non.png) <code>freebsd**#** lynx [&hellip;]</code>
+![Non](images/non.png) <code>**freebsd#** lynx [&hellip;]</code>
 
-![Oui](images/oui.png) <code>freebsd**$** lynx [&hellip;]</code>
+![Oui](images/oui.png) <code>**freebsd$** lynx [&hellip;]</code>
 
 (2x)
 
@@ -14,9 +14,9 @@
 
 **Page 83** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
 
-![Non](images/non.png) <code>debian**#** lynx [&hellip;]</code>
+![Non](images/non.png) <code>**debian#** lynx [&hellip;]</code>
 
-![Oui](images/oui.png) <code>debian**$** lynx [&hellip;]</code>
+![Oui](images/oui.png) <code>**debian$** lynx [&hellip;]</code>
 
 (2x)
 
