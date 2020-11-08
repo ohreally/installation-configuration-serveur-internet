@@ -2,6 +2,36 @@
 
 ---
 
+**Page 77** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
+
+![Non](images/non.png) <code>freebsd**#** lynx [&hellip;]</code>
+
+![Oui](images/oui.png) <code>freebsd**$** lynx [&hellip;]</code>
+
+(2x)
+
+---
+
+**Page 83** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
+
+![Non](images/non.png) <code>debian**#** lynx [&hellip;]</code>
+
+![Oui](images/oui.png) <code>debian**$** lynx [&hellip;]</code>
+
+(2x)
+
+---
+
+**Page 89** : Le démarrage de *lynx* (l'invite de commande).
+
+![Non](images/non.png) <code>**debian#** lynx [&hellip;]</code>
+
+![Oui](images/oui.png) <code>**centos$** lynx [&hellip;]</code>
+
+(2x)
+
+---
+
 **Page 193** : La configuration du daemon *sshd*.
 
 ![Non](images/non.png) <code>StrictMode yes</code>
