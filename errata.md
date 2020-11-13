@@ -48,6 +48,16 @@
 
 ---
 
+**Page 248** : Le répertoire <code>alias</code> pour un hôte ou serveur virtuel.
+
+![Non](images/non.png) Apache appelle une telle séparation un *alias*, sous Nginx c'est une *location*
+
+![Oui](images/oui.png) une telle séparation s'appelle un *alias* sous Apache et Nginx
+
+(L'alias est défini dans un contexte *location* sous Nginx, cf. page 382 : chapitre *Serveur web - Avancé*, section *Alias*.)
+
+---
+
 **Page 250** : La création des répertoires pour le premier hôte virtuel.
 
 ![Non](images/non.png) <code># chown -R **webdev**:**webdev** vert.example.com</code>
