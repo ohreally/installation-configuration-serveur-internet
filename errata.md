@@ -73,22 +73,22 @@
 freebsd# setfacl -d -m user:www:rx .</code>
 
 ![Oui](images/oui.png)\
-<code>freebsd# setfacl -m user:www:rx .\
-<strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong>\
-freebsd# setfacl -d -m user:www:rx .</code>
+<code>freebsd# setfacl -m user:www:rx .</code>\
+<code><strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
+<code>freebsd# setfacl -d -m user:www:rx .</code>
 
 ---
 
 **Page 276** : Les ACL par défaut sous FreeBSD.
 
 ![Non](images/non.png)\
-<code>bsd# setfacl -d -m user:www-db:rx .\
-[&hellip;]\
-bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
+<code>bsd# setfacl -d -m user:www-db:rx .</code>\
+<code>[&hellip;]</code>\
+<code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
 
 ![Oui](images/oui.png)\
-<code><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong>\
-bsd# setfacl -d -m user:www-db:rx .\
-[&hellip;]\
-<strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong>\
-bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
+<code><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
+<code>bsd# setfacl -d -m user:www-db:rx .</code>\
+<code>[&hellip;]</code>\
+<code><strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong></code>\
+<code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
