@@ -69,8 +69,8 @@
 **Page 275** : Les ACL par défaut sous FreeBSD.
 
 ![Non](images/non.png)\
-<code>freebsd# setfacl -m user:www:rx .\
-freebsd# setfacl -d -m user:www:rx .</code>
+<code>freebsd# setfacl -m user:www:rx .</code>\
+<code>freebsd# setfacl -d -m user:www:rx .</code>
 
 ![Oui](images/oui.png)\
 <code>freebsd# setfacl -m user:www:rx .</code>\
