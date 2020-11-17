@@ -63,3 +63,32 @@
 ![Non](images/non.png) <code># chown -R **webdev**:**webdev** vert.example.com</code>
 
 ![Oui](images/oui.png) <code># chown -R **devweb**:**devweb** vert.example.com</code>
+
+---
+
+**Page 275** : Les ACL par défaut sous FreeBSD.
+
+![Non](images/non.png)<br>
+<code>freebsd# setfacl -m user:www:rx .<br>
+freebsd# setfacl -d -m user:www:rx .</code>
+
+![Oui](images/oui.png)<br>
+<code>freebsd# setfacl -m user:www:rx .<br>
+<strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong><br>
+freebsd# setfacl -d -m user:www:rx .</code>
+
+---
+
+**Page 276** : Les ACL par défaut sous FreeBSD.
+
+![Non](images/non.png)<br>
+<code>bsd# setfacl -d -m user:www-db:rx .<br>
+[&hellip;]<br>
+bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
+
+![Oui](images/oui.png)<br>
+<code><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong><br>
+bsd# setfacl -d -m user:www-db:rx .<br>
+[&hellip;]<br>
+<strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong><br>
+bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
