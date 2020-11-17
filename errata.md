@@ -54,7 +54,7 @@
 
 ![Oui](images/oui.png) une telle séparation s'appelle un *alias* sous Apache et Nginx
 
-(L'alias est défini dans un contexte *location* sous Nginx, cf. page 382 : chapitre *Serveur web - Avancé*, section *Alias*.)
+(L'alias est défini dans un contexte *location* sous Nginx&nbsp; cf. page 382&nbsp;: chapitre *Serveur web - Avancé*, section *Alias*.)
 
 ---
 
@@ -77,6 +77,8 @@
 <code><strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
 <code>freebsd# setfacl -d -m user:www:rx .</code>
 
+(Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou les groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.)
+
 ---
 
 **Page 276** : Les ACL par défaut sous FreeBSD.
@@ -92,3 +94,5 @@
 <code>[&hellip;]</code>\
 <code><strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong></code>\
 <code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
+
+(Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.)
