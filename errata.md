@@ -104,3 +104,11 @@
 ![Non](images/non.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code>.
 
 ![Oui](images/oui.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code> (<code>/usr/local/www/phpldapadmin/config</code> sous FreeBSD).
+
+---
+
+**Page 314** : La désactivation du chiffrage TLS pour phpLDAPadmin.
+
+![Non](images/non.png) Le certificat sera utilisé pour crypter la connexion avec les clients de messagerie, quand ils se servent du carnet d'adresses partagé.
+
+![Oui](images/oui.png) Le certificat sera utilisé pour crypter la connection des clients de bureau, comme Apache Directory Studio, avec le serveur.
