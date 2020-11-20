@@ -96,3 +96,11 @@
 <code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
 
 (Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.)
+
+---
+
+**Page 312** : Les fichiers de configuration de phpLDAPadmin sous FreeBSD.
+
+![Non](images/non.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code>.
+
+![Oui](images/oui.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code> (<code>/usr/local/www/phpldapadmin/config</code> sous FreeBSD).
