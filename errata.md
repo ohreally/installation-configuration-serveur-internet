@@ -54,6 +54,14 @@
 
 ---
 
+**Page 238** : L'activation de PHP-FPM sous FreeBSD.
+
+![Non](images/non.png) <code>freebsd# service **enable php-fpm**</code>
+
+![Oui](images/oui.png) <code>freebsd# service **php-fpm enable**</code>
+
+---
+
 **Page 248** : Le répertoire <code>alias</code> pour un hôte ou serveur virtuel.
 
 ![Non](images/non.png) Apache appelle une telle séparation un *alias*, sous Nginx c'est une *location*
@@ -109,7 +117,7 @@
 
 ![Non](images/non.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code>.
 
-![Oui](images/oui.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code> (<code>/usr/local/www/phpldapadmin/config</code> sous FreeBSD).
+![Oui](images/oui.png) Les fichiers de configuration [&hellip;] <code>/etc/phpldapadmin</code> **(<code>/usr/local/www/phpldapadmin/config</code> sous FreeBSD)**.
 
 ---
 
