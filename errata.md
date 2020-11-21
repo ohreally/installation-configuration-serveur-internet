@@ -117,4 +117,4 @@
 
 ![Non](images/non.png) Le certificat sera utilisé pour crypter la connexion avec les clients de messagerie, quand ils se servent du carnet d'adresses partagé.
 
-![Oui](images/oui.png) Le certificat sera utilisé pour crypter la connection des clients de bureau, comme Apache Directory Studio, avec le serveur.
+![Oui](images/oui.png) Le certificat sera utilisé pour crypter la connection des clients de bureau, comme Apache Directory Studio, avec le serveur. Le certificat TLS de *bd.example.com* chiffra la communication entre l'utilisateur et phpLDAPadmin.
