@@ -88,7 +88,7 @@
 
 ![Oui](images/oui.png)\
 <code>freebsd# setfacl -m user:www:rx .</code>\
-<code><strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
+<code>**freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .**</code>\
 <code>freebsd# setfacl -d -m user:www:rx .</code>
 
 > Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou les groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
@@ -106,7 +106,7 @@
 <code><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
 <code>bsd# setfacl -d -m user:www-db:rx .</code>\
 <code>[&hellip;]</code>\
-<code><strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong></code>\
+<code>**bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp**</code>\
 <code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
 
 > Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
