@@ -2,33 +2,39 @@
 
 ---
 
-**Page 77** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
+**Page 77** : Le démarrage de *lynx*.
 
 ![Non](images/non.png) <code>**freebsd#** lynx [&hellip;]</code>
 
 ![Oui](images/oui.png) <code>**freebsd$** lynx [&hellip;]</code>
 
-(2x)
+*lynx* peut être exécuté par les utilisateurs normaux.
+
+&rarr; 2x
 
 ---
 
-**Page 83** : Le démarrage de *lynx* (*lynx* peut être exécuté par les utilisateurs normaux).
+**Page 83** : Le démarrage de *lynx*.
 
 ![Non](images/non.png) <code>**debian#** lynx [&hellip;]</code>
 
 ![Oui](images/oui.png) <code>**debian$** lynx [&hellip;]</code>
 
-(2x)
+*lynx* peut être exécuté par les utilisateurs normaux.
+
+&rarr; 2x
 
 ---
 
-**Page 89** : Le démarrage de *lynx* (l'invite de commande).
+**Page 89** : Le démarrage de *lynx*.
 
 ![Non](images/non.png) <code>**debian#** lynx [&hellip;]</code>
 
 ![Oui](images/oui.png) <code>**centos$** lynx [&hellip;]</code>
 
-(2x)
+L'invite de commande doit être une invite CentOS pour les utilisateurs normaux.
+
+&rarr; 2x
 
 ---
 
@@ -54,7 +60,7 @@
 
 ![Oui](images/oui.png) une telle séparation s'appelle un *alias* sous Apache et Nginx
 
-(L'alias est défini dans un contexte *location* sous Nginx&nbsp; cf. page 382&nbsp;: chapitre *Serveur web - Avancé*, section *Alias*.)
+L'alias est défini dans un contexte *location* sous Nginx&nbsp; cf. page 382&nbsp;: chapitre *Serveur web - Avancé*, section *Alias*.
 
 ---
 
@@ -77,7 +83,7 @@
 <code><strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong></code>\
 <code>freebsd# setfacl -d -m user:www:rx .</code>
 
-(Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou les groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.)
+Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou les groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
 
 ---
 
@@ -95,7 +101,7 @@
 <code><strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong></code>\
 <code>bsd# setfacl -d -m user:www-db:rwx ./tmp</code>
 
-(Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.)
+Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
 
 ---
 
