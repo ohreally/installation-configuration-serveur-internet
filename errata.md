@@ -84,18 +84,18 @@
 
 ![Non](images/non.png)\
 <code>location / {</code>\
-<code>  [&hellip;]</code>\
+<code>&nbsp;&nbsp;[&hellip;]</code>\
 <code>}</code>\
 <code>location ~ \\.php$ {</code>\
-<code>  [&hellip;]</code>\
+<code>&nbsp;&nbsp;[&hellip;]</code>\
 <code>}</code>
 
 ![Oui](images/oui.png)\
 <code>location / {</code>\
-<code>  [&hellip;]</code>\
-<code>  location ~ \\.php$ {</code>\
-<code>    [&hellip;]</code>\
-<code>  }</code>\
+<code>&nbsp;&nbsp;[&hellip;]</code>\
+<code>&nbsp;&nbsp;location ~ \\.php$ {</code>\
+<code>&nbsp;&nbsp;&nbsp;&nbsp;[&hellip;]</code>\
+<code>&nbsp;&nbsp;}</code>\
 <code>}</code>
 
 > Le deuxième contexte *location* doit être placé dans le premier contexte *location*.
