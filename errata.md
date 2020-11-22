@@ -80,6 +80,30 @@
 
 ---
 
+**Pages 256/257/258** : Configuration Nginx : contextes *location*.
+
+![Non](images/non.png)\
+<code>location / {</code>\
+<code>  [&hellip;]</code>\
+<code>}</code>\
+<code>location ~ \\.php$ {</code>\
+<code>  [&hellip;]</code>\
+<code>}</code>
+
+![Oui](images/oui.png)\
+<code>location / {</code>\
+<code>  [&hellip;]</code>\
+<code>  location ~ \\.php$ {</code>\
+<code>    [&hellip;]</code>\
+<code>  }</code>\
+<code>}</code>
+
+> Le deuxième contexte *location* doit être placé dans le premier contexte *location*.
+
+> &rarr; 3x
+
+---
+
 **Page 275** : Les ACL par défaut sous FreeBSD.
 
 ![Non](images/non.png)\
