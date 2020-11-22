@@ -153,13 +153,13 @@ bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 
 ---
 
-**Page 277/278** : Configuration Nginx bd.example.com.
+**Page 277/278** : Configuration Nginx *bd.example.com*.
 
-Le contexte *http* ne doit pas être là; cette configuration ne contient que 2 contextes *server*.
+Ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
 
 ---
 
-**Page 278** : Configuration Nginx bd.example.com.
+**Page 278** : Configuration Nginx *bd.example.com*.
 
 ![Non](images/non.png)
 <pre>location / {
