@@ -153,6 +153,100 @@ bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 
 ---
 
+**Page 277/278** : Configuration Nginx bd.example.com.
+
+Le contexte *http* ne doit pas être là; cette configuration ne contient que 2 contextes *server*.
+
+---
+
+**Page 278** : Configuration Nginx bd.example.com.
+
+![Non](images/non.png)
+<pre>location / {
+  [&hellip;]
+}
+location ~ \.php$ {
+  [&hellip;]
+}</pre>
+
+![Oui](images/oui.png)
+<pre>location / {
+  [&hellip;]
+  location ~ \.php$ {
+    [&hellip;]
+  }
+}</pre>
+
+> Le troisième contexte *location* doit être placé dans le deuxième contexte *location*.
+
+---
+
+**Page 286** : Configuration Nginx phpMyAdmin.
+
+![Non](images/non.png)
+<pre>location /mariadb {
+  alias /usr/local/www/phpMyAdmin;
+}</pre>
+
+![Oui](images/oui.png)
+<pre>location /mariadb {
+  alias /usr/local/www/phpMyAdmin;
+  <strong>location ~ \.php$ {
+    fastcgi_pass 127.0.0.1:9001;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $request_filename;
+    include fastcgi_params;
+  }</strong>
+}</pre>
+
+> Les directives pour PHP-FPM sont perdues.
+
+---
+
+**Page 294** : Configuration Nginx phpPgAdmin.
+
+![Non](images/non.png)
+<pre>location /postgres {
+  alias /usr/local/www/phpPgAdmin;
+}</pre>
+
+![Oui](images/oui.png)
+<pre>location /postgres {
+  alias /usr/local/www/phpPgAdmin;
+  <strong>location ~ \.php$ {
+    fastcgi_pass 127.0.0.1:9001;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $request_filename;
+    include fastcgi_params;
+  }</strong>
+}</pre>
+
+> Les directives pour PHP-FPM sont perdues.
+
+---
+
+**Page 311** : Configuration Nginx phpLDAPadmin.
+
+![Non](images/non.png)
+<pre>location /ldap {
+  alias /usr/local/www/phpldapadmin/htdocs;
+}</pre>
+
+![Oui](images/oui.png)
+<pre>location /ldap {
+  alias /usr/local/www/phpldapadmin/htdocs;
+  <strong>location ~ \.php$ {
+    fastcgi_pass 127.0.0.1:9001;
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $request_filename;
+    include fastcgi_params;
+  }</strong>
+}</pre>
+
+> Les directives pour PHP-FPM sont perdues.
+
+---
+
 **Page 312** : Les fichiers de configuration de phpLDAPadmin sous FreeBSD.
 
 ![Non](images/non.png)\
