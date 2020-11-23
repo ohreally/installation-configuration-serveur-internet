@@ -155,7 +155,25 @@ bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 
 **Page 277/278** : Configuration Nginx *bd.example.com*.
 
-Ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
+![Non](images/non.png)
+<pre>http {
+  server {
+    [&hellip;]
+  }
+  server {
+    [&hellip;]
+  }
+}</pre>
+
+![Oui](images/oui.png)
+<pre>server {
+  [&hellip;]
+}
+server {
+  [&hellip;]
+}</pre>
+
+> Ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
 
 ---
 
