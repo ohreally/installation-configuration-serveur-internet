@@ -282,3 +282,15 @@ Le certificat sera utilisé pour crypter la connexion avec les clients de messag
 
 ![Oui](images/oui.png)\
 Le certificat sera utilisé pour crypter la connection des clients de bureau, comme Apache Directory Studio, avec le serveur. Le certificat TLS de *bd.example.com* chiffra la communication entre l'utilisateur et phpLDAPadmin.
+
+---
+
+**Page 342** : Fichier de configuration Postfix *master.cf*.
+
+![Non](images/non.png)\
+Dans le fichier <code>master.conf</code>, [&hellip;]
+
+![Oui](images/oui.png)\
+Dans le fichier <code>master.cf</code>, [&hellip;]
+
+> Ce fichier s'appelle *master.cf*, comme indiqué quelques lignes plus haut.
