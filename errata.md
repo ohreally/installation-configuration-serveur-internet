@@ -102,19 +102,19 @@ une telle séparation s'appelle un *alias* sous Apache et Nginx
 <pre>location / {
   [&hellip;]
 }
-location ~ \.php$ {
+<strong>location ~ \.php$ {
   [&hellip;]
-}</pre>
+}</strong></pre>
 
 ![Oui](images/oui.png)
 <pre>location / {
   [&hellip;]
-  location ~ \.php$ {
+  <strong>location ~ \.php$ {
     [&hellip;]
-  }
+  }</strong>
 }</pre>
 
-> Le deuxième contexte *location* doit être placé dans le premier contexte *location*.
+> Le deuxième contexte *location*, pour les fichiers PHP, doit être placé dans le premier contexte *location*.
 
 > &rarr; 3x
 
@@ -128,7 +128,7 @@ freebsd# setfacl -d -m user:www:rx .</pre>
 
 ![Oui](images/oui.png)
 <pre>freebsd# setfacl -m user:www:rx .
-<strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong>
+<strong>freebsd# setfacl -d -m user::rwx,group::rwx,other::--- .</strong>
 freebsd# setfacl -d -m user:www:rx .</pre>
 
 > Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou les groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
@@ -143,10 +143,10 @@ freebsd# setfacl -d -m user:www:rx .</pre>
 bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 
 ![Oui](images/oui.png)
-<pre><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::\-\-\- .</strong>
+<pre><strong>bsd# setfacl -d -m user::rwx,group::rwx,other::--- .</strong>
 bsd# setfacl -d -m user:www-db:rx .
 [&hellip;]
-<strong>bsd# setfacl -d -m user::r-x,group::r-x,other::\-\-\- ./tmp</strong>
+<strong>bsd# setfacl -d -m user::r-x,group::r-x,other::--- ./tmp</strong>
 bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 
 > Avant de pouvoir définir les ACL par défaut pour les utilisateurs ou des groupes particuliers, les ACL par défaut générales doivent être définies&nbsp;; cf. page 162&nbsp;: chapitre *Gestion des utilisateurs et des droits*, section *ACL par défaut*.
@@ -156,14 +156,14 @@ bsd# setfacl -d -m user:www-db:rwx ./tmp</pre>
 **Page 277/278** : Configuration Nginx *bd.example.com*.
 
 ![Non](images/non.png)
-<pre>http {
+<pre><strong>http {</strong>
   server {
     [&hellip;]
   }
   server {
     [&hellip;]
   }
-}</pre>
+<strong>}</strong></pre>
 
 ![Oui](images/oui.png)
 <pre>server {
@@ -173,7 +173,7 @@ server {
   [&hellip;]
 }</pre>
 
-> Ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
+> Comme les configurations des serveurs virtuels sont chargé dans le contexte *http* (cf. page 236, Chapitre *Serveur web - Base*, section *Nginx*, *Configuration*), ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
 
 ---
 
@@ -183,19 +183,19 @@ server {
 <pre>location / {
   [&hellip;]
 }
-location ~ \.php$ {
+<strong>location ~ \.php$ {
   [&hellip;]
-}</pre>
+}</strong></pre>
 
 ![Oui](images/oui.png)
 <pre>location / {
   [&hellip;]
-  location ~ \.php$ {
+  <strong>location ~ \.php$ {
     [&hellip;]
-  }
+  }</strong>
 }</pre>
 
-> Le troisième contexte *location* doit être placé dans le deuxième contexte *location*.
+> Le troisième contexte *location*, pour les fichiers PHP, doit être placé dans le deuxième contexte *location*.
 
 ---
 
@@ -288,9 +288,33 @@ Le certificat sera utilisé pour crypter la connection des clients de bureau, co
 **Page 342** : Fichier de configuration Postfix *master.cf*.
 
 ![Non](images/non.png)\
-Dans le fichier <code>master.conf</code>, [&hellip;]
+Dans le fichier <code>master.**conf**</code>, [&hellip;]
 
 ![Oui](images/oui.png)\
-Dans le fichier <code>master.cf</code>, [&hellip;]
+Dans le fichier <code>master.**cf**</code>, [&hellip;]
 
 > Ce fichier s'appelle *master.cf*, comme indiqué quelques lignes plus haut.
+
+---
+
+**Page 395** : Configuration Nginx WebDAV.
+
+![Non](images/non.png)
+<pre><strong>http {</strong>
+  server {
+    [&hellip;]
+  }
+  server {
+    [&hellip;]
+  }
+<strong>}</strong></pre>
+
+![Oui](images/oui.png)
+<pre>server {
+  [&hellip;]
+}
+server {
+  [&hellip;]
+}</pre>
+
+> Comme les configurations des serveurs virtuels sont chargé dans le contexte *http* (cf. page 236, Chapitre *Serveur web - Base*, section *Nginx*, *Configuration*), ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
