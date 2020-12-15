@@ -54,7 +54,7 @@
 
 > Le redémarrage de l'interface réseau supprime toutes les routes dans la table de routage&nbsp;; le redémarrage du service *routing* les recrée. Ces deux redémarrages doivent être faits dans une seule commande.
 
-> Si le service *routing* n'est pas redémarré après le redémarrage du service *netif*, le serveur devient inaccessible et doit être redémarré.
+> Si le service *routing* n'est pas redémarré après le redémarrage du service *netif*, le serveur devient inaccessible et doit être redémarré. Clairement cela n'est vrai que si le serveur est géré à distance (p.ex. par SSH).
 
 ---
 
