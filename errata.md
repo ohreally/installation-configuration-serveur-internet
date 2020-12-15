@@ -44,6 +44,20 @@
 
 ---
 
+**Page 100** : Le redémarrage du service *netif*.
+
+![Non](images/non.png)
+<pre>freebsd# service netif restart</pre>
+
+![Oui](images/oui.png)
+<pre>freebsd# service netif restart<strong> && service routing restart</strong></pre>
+
+> Le redémarrage de l'interface réseau supprime toutes les routes dans la table de routage&nbsp;; le redémarrage du service *routing* les recrée. Ces deux redémarrages doivent être faits dans une seule commande.
+
+> Si le service *routing* n'est pas redémarré après le redémarrage du service *netif*, le serveur devient inaccessible et doit être redémarré.
+
+---
+
 **Page 193** : La configuration du daemon *sshd*.
 
 ![Non](images/non.png)
@@ -298,6 +312,30 @@ Dans le fichier <code>master.**cf**</code>, [&hellip;]
 ---
 
 **Page 395** : Configuration Nginx WebDAV.
+
+![Non](images/non.png)
+<pre><strong>http {</strong>
+  server {
+    [&hellip;]
+  }
+  server {
+    [&hellip;]
+  }
+<strong>}</strong></pre>
+
+![Oui](images/oui.png)
+<pre>server {
+  [&hellip;]
+}
+server {
+  [&hellip;]
+}</pre>
+
+> Comme les configurations des serveurs virtuels sont chargé dans le contexte *http* (cf. page 236, Chapitre *Serveur web - Base*, section *Nginx*, *Configuration*), ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
+
+---
+
+**Page 402/403** : Configuration Nginx Radicale.
 
 ![Non](images/non.png)
 <pre><strong>http {</strong>
