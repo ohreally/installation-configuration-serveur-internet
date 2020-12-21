@@ -58,6 +58,36 @@
 
 ---
 
+**Page 109/110** : La configuration du pare-feu *pf*.
+
+![Non](images/non.png)
+<pre><strong># Tableau pour les adresses IP bloquées automatiquement.
+table f2b persist { }</strong>
+
+[&hellip;]
+
+<strong># Bloquer les adresses explicitement bloquées.
+block drop quick from &lt;f2b&gt; to any</strong></pre>
+
+![Oui](images/oui.png)
+<pre><strong><del># Tableau pour les adresses IP bloquées automatiquement.
+table f2b persist { }</del></strong>
+
+[&hellip;]
+antispoof for $interface
+
+<strong>anchor "f2b/*"</strong>
+
+# Politiques par défaut.
+[&hellip;]
+
+<strong><del># Bloquer les adresses explicitement bloquées.
+block drop quick from &lt;f2b&gt; to any</del></strong></pre>
+
+> Les versions les plus récentes de Fail2ban se servent d'une *anchor* (ancre) pour la création automatique des tableaux et règles nécessaires. Cette *anchor* est inséré entre la ligne *antispoof* et la ligne *block in all*&nbsp;; les lignes se référant au tableau *f2b* doivent être supprimées.
+
+---
+
 **Page 193** : La configuration du daemon *sshd*.
 
 ![Non](images/non.png)
