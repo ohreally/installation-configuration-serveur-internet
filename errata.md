@@ -1,5 +1,11 @@
 # Errata pour *Installation et configuration d'un serveur internet*
 
+Légende:
+
+![Non](images/non.png) : texte d'origine
+
+![Oui](images/oui.png) : texte corrigé
+
 ---
 
 **Page 77** : Le démarrage de *lynx*.
