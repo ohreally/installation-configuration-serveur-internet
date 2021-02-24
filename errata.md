@@ -1,6 +1,6 @@
 # Errata pour *Installation et configuration d'un serveur internet*
 
-Légende:
+Légende :
 
 ![Non](images/non.png) : texte d'origine
 
