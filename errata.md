@@ -8,6 +8,20 @@ Légende :
 
 ---
 
+**Page 48** : La détermination du type de fichier de *fichierzip.zip*.
+
+![Non](images/non.png)
+<pre>$ file fichierzip.zip
+<strong>zipfile.zip</strong>: Zip archive data, at least v2.0 to extract</pre>
+
+![Oui](images/oui.png)
+<pre>$ file fichierzip.zip
+<strong>fichierzip.zip</strong>: Zip archive data, at least v2.0 to extract</pre>
+
+> Le résultat de la commande *file* commence avec le nom du fichier analysé.
+
+---
+
 **Page 77** : Le démarrage de *lynx*.
 
 ![Non](images/non.png)
