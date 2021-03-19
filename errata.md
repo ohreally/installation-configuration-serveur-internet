@@ -349,6 +349,16 @@ Le certificat sera utilisé pour crypter la connection des clients de bureau, co
 
 ---
 
+**Page 335** : Configuration du socket d'authentification.
+
+![Non](images/non.png)
+<pre># nano conf.d/10-mai<strong>n.cf</strong></pre>
+
+![Oui](images/oui.png)
+<pre># nano conf.d/10-mai<strong>l.conf</strong></pre>
+
+---
+
 **Page 342** : Fichier de configuration Postfix *master.cf*.
 
 ![Non](images/non.png)\
