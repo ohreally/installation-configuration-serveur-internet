@@ -371,6 +371,18 @@ Dans le fichier <code>master.**cf**</code>, [&hellip;]
 
 ---
 
+**Page 360** : Création du groupe *opendkim* sous FreeBSD.
+
+![Non](images/non.png)
+<pre>freebsd# pw groupadd <strong>-g 127 opendkim</strong></pre>
+
+![Oui](images/oui.png)
+<pre>freebsd# pw groupadd <strong>opendkim -g 127</strong></pre>
+
+> Le premier argument de la sous-commande *groupadd* est le nom du nouveau groupe.
+
+---
+
 **Page 395** : Configuration Nginx WebDAV.
 
 ![Non](images/non.png)
