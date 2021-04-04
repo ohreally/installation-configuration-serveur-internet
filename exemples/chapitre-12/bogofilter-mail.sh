@@ -43,8 +43,8 @@ COURRIEL="/srv/courriel/${USER}"
 REPTMP="${COURRIEL}/bogotmp"
 
 mkdir -p "${REPTMP}" || exit 1
-entrant=`mktemp --tmpdir="${REPTMP}" --suffix=.in`
-sortant=${in/%in/out}
+entrant=`mktemp "${REPTMP}/tmp.XXXXXXXXXX"`
+sortant="${in}.out"
 
 cat > "${entrant}"
 
