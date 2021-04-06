@@ -383,6 +383,18 @@ Dans le fichier <code>master.**cf**</code>, [&hellip;]
 
 ---
 
+**Page 372** : *bogofilter-train.sh*.
+
+![Non](images/non.png)
+<pre>cat | bogofilter ${ARG} &</pre>
+
+![Oui](images/oui.png)
+<pre>cat | bogofilter <strong>-d "${HOME}/bogofilter"</strong> ${ARG} &</pre>
+
+> Le chemin doit correspondre à celui utilisé dans les fichiers *bogo-dirs.sh* et *bogofilter-mail.sh*.
+
+---
+
 **Page 395** : Configuration Nginx WebDAV.
 
 ![Non](images/non.png)
