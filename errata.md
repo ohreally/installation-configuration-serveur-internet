@@ -383,7 +383,7 @@ Dans le fichier <code>master.**cf**</code>, [&hellip;]
 
 ---
 
-**Page 372** : *bogofilter-train.sh*.
+**Page 372** : *bogofilter-entrainer.sh*.
 
 ![Non](images/non.png)
 <pre>cat | bogofilter ${ARG} &</pre>
@@ -391,7 +391,7 @@ Dans le fichier <code>master.**cf**</code>, [&hellip;]
 ![Oui](images/oui.png)
 <pre>cat | bogofilter <strong>-d "${HOME}/bogofilter"</strong> ${ARG} &</pre>
 
-> Le chemin doit correspondre à celui utilisé dans les fichiers *bogo-dirs.sh* et *bogofilter-mail.sh*.
+> Le chemin doit correspondre à celui utilisé dans les fichiers *bogo-rprtrs.sh* et *bogofilter-courriel.sh*.
 
 ---
 
