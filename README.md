@@ -12,6 +12,10 @@ La version v1.0 correspond aux exemples dans le premier tirage du livre.
 
 Le fichier [errata.md](errata.md) contient des corrections et des additions qui ont été découvertes après la publication du livre.
 
+## Annexe
+
+Une annexe en ligne, contenant un grand nombre de liens vers des informations et des documents supplémentaires, est disponible à l'adresse [librobert.net/livre/internet/addendum](https://www.librobert.net/livre/internet/addendum.fr).
+
 ## Apropos du livre
 
 Ce livre s’adresse aux **administrateurs système**, débutants comme plus expérimentés, qui souhaitent, à partir d’un serveur sur lequel seul le système d'exploitation est installé, **configurer un serveur internet d’entreprise fonctionnel**, prêt à être mis en production.
