@@ -425,7 +425,7 @@ server {
 <pre>RequestHeader set X-Remote-User expr=%{REMOTE_USER}</pre>
 
 ![Oui](images/oui.png)
-<pre><strong>RequestHeader set X-Script-Name /radicale/</strong>
+<pre><strong>RequestHeader set X-Script-Name /</strong>
 RequestHeader set X-Remote-User expr=%{REMOTE_USER}</pre>
 
 > Le proxy inverse ne fonctionne pas sans l'en-tête *X-Script-Name*.
@@ -462,7 +462,7 @@ server {
 <pre>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</pre>
 
 ![Oui](images/oui.png)
-<pre><strong>proxy_set_header X-Script-Name /radicale;</strong>
+<pre><strong>proxy_set_header X-Script-Name /;</strong>
 proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</pre>
 
 > Le proxy inverse ne fonctionne pas sans l'en-tête *X-Script-Name*.
