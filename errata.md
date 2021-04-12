@@ -419,6 +419,19 @@ server {
 
 ---
 
+**Page 402** : Configuration Apache Radicale.
+
+![Non](images/non.png)
+<pre>RequestHeader set X-Remote-User expr=%{REMOTE_USER}</pre>
+
+![Oui](images/oui.png)
+<pre><strong>RequestHeader set X-Script-Name /radicale/</strong>
+RequestHeader set X-Remote-User expr=%{REMOTE_USER}</pre>
+
+> Le proxy inverse ne fonctionne pas sans l'en-tête *X-Script-Name*.
+
+---
+
 **Page 402/403** : Configuration Nginx Radicale.
 
 ![Non](images/non.png)
@@ -440,3 +453,16 @@ server {
 }</pre>
 
 > Comme les configurations des serveurs virtuels sont chargé dans le contexte *http* (cf. page 236, Chapitre *Serveur web - Base*, section *Nginx*, *Configuration*), ce fichier ne doit pas contenir un contexte *http*; cette configuration ne contient que 2 contextes *server*.
+
+---
+
+**Page 403** : Configuration Nginx Radicale.
+
+![Non](images/non.png)
+<pre>proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</pre>
+
+![Oui](images/oui.png)
+<pre><strong>proxy_set_header X-Script-Name /radicale;</strong>
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</pre>
+
+> Le proxy inverse ne fonctionne pas sans l'en-tête *X-Script-Name*.
