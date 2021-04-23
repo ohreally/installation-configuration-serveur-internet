@@ -234,7 +234,7 @@ une telle séparation s'appelle un *alias* sous Apache et Nginx
 
 ---
 
-## <a id="Chapitre_11"></a>Chappitre 11
+## <a id="Chapitre_11"></a>Chapitre 11
 
 **Page 275** : Les ACL par défaut sous FreeBSD.
 
