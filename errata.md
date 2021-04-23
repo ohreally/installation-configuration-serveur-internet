@@ -136,7 +136,7 @@ Tout comme les ACL peuvent servir à l'attribution des droits supplémentaires, 
 
 <pre>
 $ ls -l ./paspourdiane.txt
--rw-r--r-- 1 dimitri wheel 893 4 apr. 15:43 ./paspourdiane.txt
+-rw-r--r-- 1 dimitri wheel 893 4 avr. 15:43 ./paspourdiane.txt
 $ getfacl ./paspourdiane.txt
   file: ./paspourdiane.txt
   owner: dimitri
