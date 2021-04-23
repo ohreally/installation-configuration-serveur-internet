@@ -11,6 +11,7 @@ Légende :
 * [Chapitre 2](#Chapitre_2)
 * [Chapitre 3](#Chapitre_3)
 * [Chapitre 4](#Chapitre_4)
+* [Chapitre 5](#Chapitre_5)
 * [Chapitre 7](#Chapitre_7)
 * [Chapitre 9](#Chapitre_9)
 * [Chapitre 11](#Chapitre_11)
@@ -122,6 +123,34 @@ antispoof for $interface
 block drop quick from &lt;f2b&gt; to any</del></strong></pre>
 
 > Les versions les plus récentes de Fail2ban se servent d'une *anchor* (ancre) pour la création automatique des tableaux et règles nécessaires. Cette *anchor* est inséré entre la ligne *antispoof* et la ligne *block in all*&nbsp;; les lignes se référant au tableau *f2b* doivent être supprimées.
+
+---
+
+## <a id="Chapitre_5"></a>Chapitre 5
+
+**Page 162** : Les ACL.
+
+Non mentionné, mais important quand-même.
+
+Tout comme les ACL peuvent servir à l'attribution des droits supplémentaires, elles peuvent également servir à une limitation supplémentaire des droits d'utilisateur. Dans l'exemple suivante tous les utilisateurs peuvent accéder au fichier *paspourdiane.txt*, sauf *diane* :
+
+<pre>
+$ ls -l ./paspourdiane.txt
+-rw-r--r-- 1 dimitri wheel 893 4 apr. 15:43 ./paspourdiane.txt
+$ getfacl ./paspourdiane.txt
+  file: ./paspourdiane.txt
+  owner: dimitri
+  group: wheel
+  user::rw-
+  group:r--
+  user:diane:---
+  mask::r--
+  other::r--
+</pre>
+
+La commande suivante sert à l'annulation de cette limitation:
+
+<pre>$ setfacl -x u:diane:--- ./paspourdiane.txt</pre>
 
 ---
 
