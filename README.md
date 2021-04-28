@@ -6,7 +6,7 @@ Ce dépôt accompagne le livre *[Installation et configuration d'un serveur inte
 
 ## Versions
 
-La version v1.0 correspond aux exemples dans le premier tirage du livre.
+[La Version v1.0](https://github.com/ohreally/installation-configuration-serveur-internet/releases/tag/v1.0) correspond aux exemples dans le premier tirage du livre.
 
 ## Errata
 
